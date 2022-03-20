@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardCard component should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-ra0mqu"
+  >
+    <div
+      class="MuiBox-root css-86nosg"
+    >
+      <div
+        class="MuiBox-root css-1ay9vb9"
+      >
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 css-vhi6o1-MuiTypography-root"
+          data-testid="header"
+        >
+          Header
+        </h6>
+      </div>
+      <div
+        class="MuiBox-root css-d0uhtl"
+      />
+    </div>
+    <div
+      class="MuiBox-root css-1y0pddo"
+      data-testid="body"
+    >
+      Body
+    </div>
+  </div>
+</DocumentFragment>
+`;
