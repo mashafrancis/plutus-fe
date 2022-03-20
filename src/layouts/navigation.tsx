@@ -15,6 +15,6 @@ export const pages = [
 	{
 		id: 'people',
 		title: 'People',
-		href: '/dashboard/people',
+		href: '/dashboard/bulletin',
 	},
 ];

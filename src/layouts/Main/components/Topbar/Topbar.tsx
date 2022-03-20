@@ -57,31 +57,15 @@ const Topbar = (): JSX.Element => {
 			</Box>
 			<Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
 				<Logo />
-				{/*<Box marginLeft={3}>*/}
-				{/*	<Button*/}
-				{/*		sx={{*/}
-				{/*			color: theme.palette.text.primary,*/}
-				{/*			'&:hover': {*/}
-				{/*				color: theme.palette.primary.dark,*/}
-				{/*			},*/}
-				{/*		}}*/}
-				{/*		variant="text"*/}
-				{/*		component={Link}*/}
-				{/*		noLinkStyle*/}
-				{/*		href="/resources"*/}
-				{/*	>*/}
-				{/*		Resources*/}
-				{/*	</Button>*/}
-				{/*</Box>*/}
 			</Box>
 
 			<Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
-				{/*<Box marginLeft={3}>*/}
-				{/*	<DarkModeToggler*/}
-				{/*		moonColor={theme.palette.secondary.main}*/}
-				{/*		sunColor={theme.palette.primary.main}*/}
-				{/*	/>*/}
-				{/*</Box>*/}
+				<Box marginLeft={3}>
+					<DarkModeToggler
+						moonColor={theme.palette.secondary.main}
+						sunColor={theme.palette.primary.main}
+					/>
+				</Box>
 				{renderAuthButtons()}
 			</Box>
 		</Box>

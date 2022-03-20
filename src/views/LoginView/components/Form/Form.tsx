@@ -73,9 +73,7 @@ const Form = (): JSX.Element => {
 				>
 					Welcome back
 				</Typography>
-				<Typography color="text.secondary">
-					Login to manage your account.
-				</Typography>
+				<Typography color="text.secondary">Login to your account.</Typography>
 			</Box>
 			<form name="email-login" onSubmit={handleSubmit}>
 				<Grid container spacing={2}>
@@ -97,28 +95,6 @@ const Form = (): JSX.Element => {
 					</Grid>
 
 					<Grid item xs={12}>
-						<Box
-							display="flex"
-							flexDirection={{ xs: 'column', sm: 'row' }}
-							alignItems={{ xs: 'stretched', sm: 'center' }}
-							justifyContent={'space-between'}
-							width={1}
-							marginBottom={2}
-						>
-							<Box marginBottom={{ xs: 1, sm: 0 }}>
-								<Typography variant={'subtitle2'}></Typography>
-							</Box>
-							<Typography variant={'subtitle2'}>
-								<Link
-									// component={'a'}
-									color={'primary'}
-									href={'/password-reset-simple'}
-									underline={'none'}
-								>
-									Forgot your password?
-								</Link>
-							</Typography>
-						</Box>
 						<TextField
 							label="Password *"
 							variant="outlined"
@@ -162,7 +138,7 @@ const Form = (): JSX.Element => {
 								color="primary"
 								size="large"
 								disabled={!isValid}
-								loading
+								// loading
 								loadingIndicator="Please wait..."
 							>
 								Login

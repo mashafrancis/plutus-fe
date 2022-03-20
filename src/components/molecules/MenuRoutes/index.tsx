@@ -1,5 +1,5 @@
 // views
-import PeopleView from 'views/PeopleView';
+import BulletinView from 'views/BulletinView';
 // third-party-icons
 import { WidgetsRounded } from '@mui/icons-material';
 // interfaces
@@ -8,8 +8,8 @@ import { MenuComponentProps } from '@components/molecules/MenuRoutes/interfaces'
 export const DashboardMenus: MenuComponentProps[] = [
 	{
 		icon: <WidgetsRounded />,
-		primaryText: 'People',
-		component: PeopleView,
-		id: 'people',
+		primaryText: 'Bulletin',
+		component: BulletinView,
+		id: 'bulletin',
 	},
 ];

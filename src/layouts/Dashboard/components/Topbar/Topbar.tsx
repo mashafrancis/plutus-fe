@@ -5,7 +5,6 @@ import CustomAvatar from '@components/molecules/CustomAvatar';
 import Logo from '@components/atoms/Logo';
 import { Theme, Tooltip, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Notifications, SearchBox } from '@components/molecules';
 
 const Topbar = (): JSX.Element => {
 	const isSm = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
@@ -36,7 +35,6 @@ const Topbar = (): JSX.Element => {
 						/>
 					</Box>
 				</Tooltip>
-				<Notifications />
 				<Box marginLeft={isSm ? 3 : 1}>
 					<CustomAvatar />
 				</Box>
