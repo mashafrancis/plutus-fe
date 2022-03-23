@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-// import crypto from 'crypto'
+import crypto from 'crypto'
 import { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { CacheProvider } from '@emotion/react';
@@ -7,7 +7,7 @@ import createCache from '@emotion/cache';
 import createEmotionServer from '@emotion/server/create-instance';
 
 const APP_NAME = 'plutus';
-const APP_DESCRIPTION = 'the finance god';
+const APP_DESCRIPTION = 'the finance friend';
 
 const getCache = () => {
 	const cache = createCache({ key: 'css', prepend: true });
@@ -16,22 +16,23 @@ const getCache = () => {
 	return cache;
 };
 
-// const cspHashOf = (text): string => {
-// 	const hash = crypto.createHash('sha256')
-// 	hash.update(text)
-// 	return `'sha256-${hash.digest('base64')}'`
-// }
+const cspHashOf = (text): string => {
+	const hash = crypto.createHash('sha256')
+	hash.update(text)
+	return `'sha256-${hash.digest('base64')}'`
+}
 
 export default class MyDocument extends Document {
 	render(): JSX.Element {
-		// let csp = `default-src 'self'; script-src 'self' ${cspHashOf(
-		// 	NextScript.getInlineScriptSource(this.props)
-		// )}`
-		// if (process.env.NODE_ENV !== 'production') {
-		// 	csp = `style-src 'self' 'unsafe-inline'; font-src 'self' data:; default-src 'none'; script-src 'unsafe-eval' 'self' ${cspHashOf(
-		// 		NextScript.getInlineScriptSource(this.props)
-		// 	)}`
-		// }
+    let csp = `style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com 'self' data:; default-src 'self'; script-src 'unsafe-eval' 'self' ${cspHashOf(
+      NextScript.getInlineScriptSource(this.props)
+    )}`
+
+		if (process.env.NODE_ENV === 'production') {
+      csp = `style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com 'self' data:; default-src 'self'; script-src 'unsafe-eval' 'self' ${cspHashOf(
+        NextScript.getInlineScriptSource(this.props)
+      )}`
+		}
 
 		return (
 			<Html lang="en">
@@ -44,7 +45,7 @@ export default class MyDocument extends Document {
 						content="default"
 					/>
 					<meta name="apple-mobile-web-app-title" content={APP_NAME} />
-					{/*<meta httpEquiv="Content-Security-Policy" content={csp} />*/}
+					<meta httpEquiv="Content-Security-Policy" content={csp} />
 					<meta name="theme-color" content="#ffffff" />
 					<meta name="description" content={APP_DESCRIPTION} />
 					<meta

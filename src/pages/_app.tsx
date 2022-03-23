@@ -56,7 +56,7 @@ const App = ({
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
 				/>
-				<title>Plutus | the finance god</title>
+				<title>plutus | the finance friend</title>
 			</Head>
 			<ErrorBoundary
 				FallbackComponent={ErrorBoundaryPage}
