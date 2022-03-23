@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import { useRouter } from 'next/router';
 
 const darkLogo =
-	'https://res.cloudinary.com/almondgreen/image/upload/v1647772498/Plutus/plutus-icon_fxdwz5.png';
+	'https://res.cloudinary.com/almondgreen/image/upload/v1648013568/Plutus/plutus-icon-dark_a18wf4.png';
 const logo =
-	'https://res.cloudinary.com/almondgreen/image/upload/v1647772498/Plutus/plutus-icon_fxdwz5.png';
+	'https://res.cloudinary.com/almondgreen/image/upload/v1648015773/Plutus/plutus-icon-light_kdmkl3.png';
 
 const Logo = (): JSX.Element => {
 	const router = useRouter();
@@ -16,7 +16,7 @@ const Logo = (): JSX.Element => {
 
 	return (
 		<div
-			data-testid="safaricom-logo"
+			data-testid="plutus-logo"
 			onClick={() => router.push('/')}
 			onKeyDown={() => router.push('/')}
 			role="presentation"
@@ -25,9 +25,9 @@ const Logo = (): JSX.Element => {
 			<Box
 				component={'img'}
 				src={mode === 'light' ? logo : darkLogo}
-				alt="safaricom-logo"
+				alt="plutus-logo"
 				// height={0.3}
-				width={1}
+				width={0.7}
 			/>
 		</div>
 	);
