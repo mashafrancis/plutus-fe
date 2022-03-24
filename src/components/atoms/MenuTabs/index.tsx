@@ -1,5 +1,5 @@
 import { Tab, Tabs } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 
 interface MenuTabProps {
 	label?: string;
@@ -29,7 +29,7 @@ const MenuTab = styled((props: MenuTabProps) => (
 	'&.Mui-selected': {
 		color: theme.palette.primary.main,
 		fontWeight: theme.typography.fontWeightMedium,
-		backgroundColor: theme.palette.background.level3,
+		backgroundColor: alpha(theme.palette.primary.main, 0.1),
 		borderRadius: theme.shape.borderRadius,
 	},
 	'&:focus': {

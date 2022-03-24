@@ -35,7 +35,7 @@ export const light = {
 	background: {
 		paper: '#ffffff',
 		default: '#ffffff',
-		level3: '#52b44b1f',
+		level3: '#62a1e81f',
 		level2: '#f5f5f5',
 		level1: '#ffffff',
 		contrast: 'rgba(255, 255, 255, 0.12)',

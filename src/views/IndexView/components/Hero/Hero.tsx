@@ -15,13 +15,13 @@ const Hero = (): JSX.Element => {
 		defaultMatches: true,
 	});
 
-	const handleDashboard = () => push('/dashboard/bulletin');
+	const handleDashboard = () => push('/dashboard');
 
 	const LeftSide = () => (
 		<Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
 			<Box marginBottom={2}>
 				<Typography variant="h2" color="text.primary" sx={{ fontWeight: 700 }}>
-					The secret life of
+					The secret lives of
 					<br />
 					<Typography
 						color={'primary'}
@@ -72,7 +72,7 @@ const Hero = (): JSX.Element => {
 						</Box>
 					}
 				>
-					Proceed
+					Proceed to dashboard
 				</Button>
 			</Box>
 		</Box>

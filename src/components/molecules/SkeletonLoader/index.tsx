@@ -61,17 +61,7 @@ const SkeletonLoader = ({ pageTitle, columns }: Props): JSX.Element => {
 	const rows = generateArray(30, createSkeletonRows);
 
 	return (
-		<Dashboard
-			pageTitle={
-				pageTitle ? (
-					pageTitle
-				) : (
-					<Box sx={{ width: 150 }}>
-						<Skeleton animation="wave" />
-					</Box>
-				)
-			}
-		>
+		<Dashboard>
 			<Grid container spacing={1}>
 				<Grid item xs={12}>
 					<DataTable rows={rows} columns={modColumns} />

@@ -1,43 +1,20 @@
-import {
-	ReactNode,
-	useState,
-	useEffect,
-	createContext,
-	useContext,
-} from 'react';
-import { Sidebar, Topbar } from './components';
-import {
-	Box,
-	Button,
-	Chip,
-	Drawer,
-	Stack,
-	Toolbar,
-	Tooltip,
-	Typography,
-	useMediaQuery,
-} from '@mui/material';
+import { ReactNode, useState, useEffect, useContext } from 'react';
+import { Topbar } from './components';
+import { Box, Drawer, Toolbar, useMediaQuery } from '@mui/material';
 import MuiAppBar, {
 	AppBarProps as MuiAppBarProps,
 } from '@mui/material/AppBar';
 import { alpha, styled, useTheme } from '@mui/material/styles';
 import Container from '@components/Container';
-import { drawerWidth } from './components/Sidebar/Sidebar';
-import { pages } from '../navigation';
 import { DashboardContext } from '@context/DashboardContext';
 import { LinearProgressBar, MenuContent } from '@components/atoms';
-import { FirstPageRounded, LastPageRounded } from '@mui/icons-material';
+import { BottomNavigation } from '@components/molecules';
 
 interface Props {
 	children: ReactNode;
-	pageTitle?: string | ReactNode;
-	sideMenuInfo?: string | ReactNode;
 	isSideDrawerOpen?: boolean;
 	showOrHideDetails?: () => void;
 	showDetailsPanelSelect?: boolean;
-	showTimeRangeSelect?: boolean;
-	showManagementZonesSelect?: boolean;
-	showPeakValue?: boolean;
 }
 
 interface AppBarProps extends MuiAppBarProps {
@@ -90,8 +67,6 @@ const useMounted = () => {
 
 const Dashboard = ({
 	children,
-	pageTitle = '',
-	sideMenuInfo = '',
 	isSideDrawerOpen = false,
 	showOrHideDetails,
 	showDetailsPanelSelect = false,
@@ -103,88 +78,6 @@ const Dashboard = ({
 		defaultMatches: true,
 	});
 	const isMounted = useMounted();
-
-	const dashboardMenuDetails = () => (
-		<Box
-			bgcolor={'alternate.main'}
-			marginLeft={{ md: `${drawerWidth}px` }}
-			sx={{
-				borderBottom: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-				borderTop: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-				// zIndex: theme.zIndex.drawer + 1,
-				position: 'relative',
-			}}
-		>
-			<Container
-				sx={{ position: 'relative' }}
-				maxWidth={{ sm: 720, md: '95%' }}
-				width={1}
-				paddingY={{ xs: 1 }}
-				paddingX={{ xs: 0 }}
-			>
-				<Stack
-					direction="row"
-					justifyContent="space-between"
-					alignItems="center"
-					spacing={2}
-				>
-					<Stack
-						direction="row"
-						justifyContent="flex-start"
-						alignItems="center"
-						spacing={2}
-					>
-						<Typography
-							sx={{
-								padding: '6px 0',
-								width: 'fit-content',
-								fontWeight: 500,
-								[theme.breakpoints.down('sm')]: {
-									fontSize: 11,
-									paddingLeft: 2,
-									paddingRight: 2,
-								},
-							}}
-							variant="body2"
-							color="primary"
-						>
-							{pageTitle}
-						</Typography>
-						<Chip
-							label={sideMenuInfo}
-							color="secondary"
-							size="small"
-							sx={{
-								display: sideMenuInfo ? 'flex' : 'none',
-							}}
-						/>
-					</Stack>
-					<Stack
-						direction="row"
-						justifyContent="flex-start"
-						alignItems="center"
-						spacing={2}
-					>
-						<Tooltip
-							title={`${isSideDrawerOpen ? 'Hide' : 'Show'} details panel`}
-						>
-							<Button
-								sx={{
-									fontWeight: 500,
-									display: showDetailsPanelSelect ? 'flex' : 'none',
-									minWidth: 'unset',
-								}}
-								variant="outlined"
-								onClick={showOrHideDetails}
-							>
-								{isSideDrawerOpen ? <LastPageRounded /> : <FirstPageRounded />}
-							</Button>
-						</Tooltip>
-					</Stack>
-				</Stack>
-			</Container>
-		</Box>
-	);
 
 	return (
 		<Box
@@ -215,48 +108,40 @@ const Dashboard = ({
 			</AppBar>
 			<Toolbar variant={'dense'} />
 
-			<Drawer
-				variant="permanent"
-				PaperProps={{
-					sx: {
-						background: theme.palette.alternate.main,
-						borderRight: 'none',
-					},
-				}}
-			>
-				<Toolbar />
-				<MenuContent />
-			</Drawer>
+			{isMd && (
+				<Drawer
+					variant="permanent"
+					PaperProps={{
+						sx: {
+							background: theme.palette.alternate.main,
+							borderRight: 'none',
+						},
+					}}
+				>
+					<Toolbar />
+					<MenuContent />
+				</Drawer>
+			)}
 
-			<Sidebar
-				onSidebarClose={handleSidebar}
-				open={isSidebarOpen}
-				variant={isMd ? 'permanent' : 'temporary'}
-				pages={pages}
-			/>
-			{dashboardMenuDetails()}
 			<Main open={isSideDrawerOpen}>
 				<Box
 					display="flex"
 					flex="1 1 auto"
 					overflow="hidden"
-					marginLeft={{ md: `${drawerWidth}px` }} // Replace with 148px if it doesn't work
+					paddingLeft={{ md: '10%' }} // Replace with 148px if it doesn't work
 				>
 					<Box display="flex" flex="1 1 auto" overflow="hidden">
 						<Box flex="1 1 auto" height="100%" overflow="auto">
-							<Container
-								sx={{ position: 'relative' }}
-								maxWidth={{ sm: 720, md: '95%' }} // Replace md with 1440px if it doesn't work
-								width={1}
-								paddingY={{ xs: 1 }}
-								paddingX={{ xs: 0 }}
-							>
-								{isMounted ? children : <LinearProgressBar />}
-							</Container>
+							{isMounted ? children : <LinearProgressBar />}
 						</Box>
 					</Box>
 				</Box>
 			</Main>
+			{isMd ? null : (
+				<Container>
+					<BottomNavigation />
+				</Container>
+			)}
 		</Box>
 	);
 };

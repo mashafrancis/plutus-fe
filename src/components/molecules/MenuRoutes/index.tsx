@@ -1,15 +1,46 @@
 // views
-import BulletinView from 'views/BulletinView';
+import AnalyticsView from 'views/AnalyticsView';
 // third-party-icons
-import { WidgetsRounded } from '@mui/icons-material';
+import {
+	AccountBalanceWalletTwoTone,
+	BeachAccessTwoTone,
+	EmojiFoodBeverageTwoTone,
+	LibraryBooksTwoTone,
+	WidgetsRounded,
+	WidgetsTwoTone,
+} from '@mui/icons-material';
 // interfaces
 import { MenuComponentProps } from '@components/molecules/MenuRoutes/interfaces';
 
 export const DashboardMenus: MenuComponentProps[] = [
 	{
-		icon: <WidgetsRounded />,
-		primaryText: 'Bulletin',
-		component: BulletinView,
-		id: 'bulletin',
+		icon: <WidgetsTwoTone />,
+		primaryText: 'Analytics',
+		component: AnalyticsView,
+		id: 'analytics',
+	},
+	{
+		icon: <BeachAccessTwoTone />,
+		primaryText: 'Transactions',
+		component: AnalyticsView,
+		id: 'transactions',
+	},
+	{
+		icon: <AccountBalanceWalletTwoTone />,
+		primaryText: 'Accounts',
+		component: AnalyticsView,
+		id: 'accounts',
+	},
+	{
+		icon: <LibraryBooksTwoTone />,
+		primaryText: 'Reports',
+		component: AnalyticsView,
+		id: 'reports',
+	},
+	{
+		icon: <EmojiFoodBeverageTwoTone />,
+		primaryText: 'Budget',
+		component: AnalyticsView,
+		id: 'budget',
 	},
 ];
