@@ -107,7 +107,7 @@ const Hero = (): JSX.Element => {
 	return (
 		<Container
 			paddingX={0}
-			// paddingTop={{ xs: 8, sm: 6, md: 0 }}
+			paddingTop={{ xs: 8, sm: 6, md: 0 }}
 			maxWidth={{ sm: 1, md: 1236 }}
 			minHeight={isMd ? 'unset' : '100vh'}
 		>
