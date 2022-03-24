@@ -2,6 +2,7 @@
   "author": "Francis Masha",
   "name": "Plutus",
   "short_name": "plutus",
+  "description": "the finance companion",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "display": "standalone",

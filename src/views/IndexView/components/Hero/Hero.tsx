@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import { HomeIllustration } from '@svg/illustrations';
 import { useRouter } from 'next/router';
 import Container from '@components/Container';
-import { Divider } from '@mui/material';
 
 const Hero = (): JSX.Element => {
 	const theme = useTheme();
@@ -16,13 +15,13 @@ const Hero = (): JSX.Element => {
 		defaultMatches: true,
 	});
 
-	const handleDashboard = () => push('/dashboard/people');
+	const handleDashboard = () => push('/dashboard/bulletin');
 
 	const LeftSide = () => (
 		<Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
 			<Box marginBottom={2}>
 				<Typography variant="h2" color="text.primary" sx={{ fontWeight: 700 }}>
-					Lorem ipsum dolor sit
+					The secret life of
 					<br />
 					<Typography
 						color={'primary'}
@@ -35,13 +34,14 @@ const Hero = (): JSX.Element => {
 							)} 0%)`,
 						}}
 					>
-						consectetur
+						finances.
 					</Typography>
 				</Typography>
 			</Box>
 			<Box marginBottom={3}>
 				<Typography variant="h6" component="p" color="text.secondary">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.
+					“Too many people spend money they earned..to buy things they don’t
+					want..to impress people that they don’t like.”
 				</Typography>
 			</Box>
 			<Box
@@ -72,7 +72,7 @@ const Hero = (): JSX.Element => {
 						</Box>
 					}
 				>
-					Dashboard
+					Proceed
 				</Button>
 			</Box>
 		</Box>
