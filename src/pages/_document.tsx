@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import crypto from 'crypto'
+import crypto from 'crypto';
 import { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { CacheProvider } from '@emotion/react';
@@ -17,21 +17,21 @@ const getCache = () => {
 };
 
 const cspHashOf = (text): string => {
-	const hash = crypto.createHash('sha256')
-	hash.update(text)
-	return `'sha256-${hash.digest('base64')}'`
-}
+	const hash = crypto.createHash('sha256');
+	hash.update(text);
+	return `'sha256-${hash.digest('base64')}'`;
+};
 
 export default class MyDocument extends Document {
 	render(): JSX.Element {
-    let csp = `style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com 'self' data:; default-src 'self'; script-src 'unsafe-eval' 'self' ${cspHashOf(
-      NextScript.getInlineScriptSource(this.props)
-    )}`
+		let csp = `style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com 'self' data:; default-src 'self'; script-src 'unsafe-eval' 'self' ${cspHashOf(
+			NextScript.getInlineScriptSource(this.props),
+		)}`;
 
 		if (process.env.NODE_ENV === 'production') {
-      csp = `style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com 'self' data:; default-src 'self'; script-src 'unsafe-eval' 'self' ${cspHashOf(
-        NextScript.getInlineScriptSource(this.props)
-      )}`
+			csp = `style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com 'self' data:; default-src 'self'; script-src 'unsafe-eval' 'self' ${cspHashOf(
+				NextScript.getInlineScriptSource(this.props),
+			)}`;
 		}
 
 		return (

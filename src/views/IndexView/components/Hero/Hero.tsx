@@ -105,74 +105,74 @@ const Hero = (): JSX.Element => {
 	};
 
 	return (
-			<Container
-				paddingX={0}
-				// paddingTop={{ xs: 8, sm: 6, md: 0 }}
-				maxWidth={{ sm: 1, md: 1236 }}
-        minHeight={isMd ? 'unset' : '100vh'}
+		<Container
+			paddingX={0}
+			// paddingTop={{ xs: 8, sm: 6, md: 0 }}
+			maxWidth={{ sm: 1, md: 1236 }}
+			minHeight={isMd ? 'unset' : '100vh'}
+		>
+			<Box
+				display={'flex'}
+				flexDirection={{ xs: 'column', md: 'row' }}
+				position={'relative'}
+				minHeight={isMd ? '100vh' : 'unset'}
 			>
 				<Box
+					width={1}
+					order={{ xs: 2, md: 1 }}
 					display={'flex'}
-					flexDirection={{ xs: 'column', md: 'row' }}
-					position={'relative'}
-          minHeight={isMd ? '100vh' : 'unset'}
+					alignItems={'center'}
+				>
+					<Container>
+						<LeftSide />
+					</Container>
+				</Box>
+				<Box
+					sx={{
+						flex: { xs: '0 0 100%', md: '0 0 50%' },
+						position: 'relative',
+						maxWidth: { xs: '100%', md: '50%' },
+						order: { xs: 1, md: 2 },
+					}}
 				>
 					<Box
-						width={1}
-						order={{ xs: 2, md: 1 }}
-						display={'flex'}
-						alignItems={'center'}
-					>
-						<Container>
-							<LeftSide />
-						</Container>
-					</Box>
-					<Box
 						sx={{
-							flex: { xs: '0 0 100%', md: '0 0 50%' },
+							width: { xs: 1, md: '50vw' },
+							height: '100%',
 							position: 'relative',
-							maxWidth: { xs: '100%', md: '50%' },
-							order: { xs: 1, md: 2 },
 						}}
 					>
 						<Box
 							sx={{
-								width: { xs: 1, md: '50vw' },
+								width: '100%',
 								height: '100%',
-								position: 'relative',
+								overflow: 'hidden',
 							}}
 						>
 							<Box
 								sx={{
-									width: '100%',
-									height: '100%',
 									overflow: 'hidden',
+									left: '0%',
+									width: 1,
+									height: 1,
+									position: { xs: 'relative', md: 'absolute' },
+									clipPath: {
+										xs: 'none',
+										md: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
+									},
+									shapeOutside: {
+										xs: 'none',
+										md: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
+									},
 								}}
 							>
-								<Box
-									sx={{
-										overflow: 'hidden',
-										left: '0%',
-										width: 1,
-										height: 1,
-										position: { xs: 'relative', md: 'absolute' },
-										clipPath: {
-											xs: 'none',
-											md: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
-										},
-										shapeOutside: {
-											xs: 'none',
-											md: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
-										},
-									}}
-								>
-									<RightSide />
-								</Box>
+								<RightSide />
 							</Box>
 						</Box>
 					</Box>
 				</Box>
-			</Container>
+			</Box>
+		</Container>
 	);
 };
 
