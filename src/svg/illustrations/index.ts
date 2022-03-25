@@ -7,3 +7,4 @@ export { default as NoDataIllustration } from './NoDataIllustration';
 export { default as ErrorBoundaryIllustration } from './ErrorBoundaryIllustration';
 export { default as ErrorOnPageIllustration } from './ErrorOnPageIllustration';
 export { default as LoginIllustration } from './LoginIllustration';
+export { default as LoginMobileIllustration } from './LoginMobileIllustration';

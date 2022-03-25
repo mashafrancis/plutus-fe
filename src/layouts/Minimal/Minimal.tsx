@@ -97,29 +97,27 @@ const Minimal = ({ children }: Props): JSX.Element => {
 
 	return (
 		<Box>
-			<ElevationScroll isMobileView={isMd}>
-				<AppBar
-					position={'fixed'}
-					sx={{
-						backgroundColor: theme.palette.background.paper,
-						// borderBottom: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-					}}
-					elevation={0}
-				>
-					<Toolbar>
-						<Container
-							maxWidth={1}
-							paddingY={{ xs: 1, sm: 1.5 }}
-							paddingX={{ xs: 0 }}
-						>
-							<Topbar />
-						</Container>
-					</Toolbar>
-				</AppBar>
-			</ElevationScroll>
+			<AppBar
+				position={'fixed'}
+				sx={{
+					backgroundColor: theme.palette.background.paper,
+					// borderBottom: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+				}}
+				elevation={0}
+			>
+				<Toolbar>
+					<Container
+						maxWidth={1}
+						paddingY={{ xs: 0, sm: 1.5 }}
+						paddingX={{ xs: 0 }}
+					>
+						<Topbar />
+					</Container>
+				</Toolbar>
+			</AppBar>
 			<div id="back-to-top-anchor" />
 			<main>
-				<Box height={{ xs: 58, sm: 66 }} />
+				{/*<Box height={{ xs: 58, sm: 66 }} />*/}
 				{children}
 			</main>
 			<ScrollTop>

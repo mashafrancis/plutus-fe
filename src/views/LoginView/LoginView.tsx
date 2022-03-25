@@ -3,9 +3,12 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Minimal from 'layouts/Minimal';
 import Container from 'components/Container';
-import { Form } from './components';
+import { Form, MobileForm } from './components';
 import { Grid } from '@mui/material';
-import { LoginIllustration } from '@svg/illustrations';
+import {
+	LoginIllustration,
+	LoginMobileIllustration,
+} from '@svg/illustrations';
 
 const LoginView = (): JSX.Element => {
 	const theme = useTheme();
@@ -22,24 +25,33 @@ const LoginView = (): JSX.Element => {
 					overflow: 'hidden',
 				}}
 			>
-				<Container>
-					<Grid container spacing={6}>
+				<Container
+					paddingY={{ xs: 0, sm: 6, md: 8 }}
+					paddingX={{ xs: 0, md: 2 }}
+				>
+					<Grid container spacing={1}>
 						{isMd ? (
 							<Grid item container justifyContent={'center'} xs={12} md={6}>
 								<Box height={1} width={1} maxWidth={500}>
 									<LoginIllustration />
 								</Box>
 							</Grid>
-						) : null}
+						) : (
+							<Grid item container xs={4}>
+								<Box height={1} width={1}>
+									<LoginMobileIllustration />
+								</Box>
+							</Grid>
+						)}
 						<Grid
 							item
 							container
-							alignItems={'center'}
-							justifyContent={'center'}
-							xs={12}
-							md={5}
+							alignItems="center"
+							justifyContent="center"
+							xs={8}
+							// md={5}
 						>
-							<Form />
+							{<MobileForm />}
 						</Grid>
 					</Grid>
 				</Container>

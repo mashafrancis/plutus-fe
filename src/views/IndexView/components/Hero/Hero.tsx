@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { HomeIllustration } from '@svg/illustrations';
 import { useRouter } from 'next/router';
 import Container from '@components/Container';
+import { ArrowForward } from '@mui/icons-material';
 
 const Hero = (): JSX.Element => {
 	const theme = useTheme();
@@ -15,7 +16,7 @@ const Hero = (): JSX.Element => {
 		defaultMatches: true,
 	});
 
-	const handleDashboard = () => push('/dashboard');
+	const handleDashboard = () => push('/login');
 
 	const LeftSide = () => (
 		<Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
@@ -55,22 +56,7 @@ const Hero = (): JSX.Element => {
 					size="large"
 					fullWidth={!isMd}
 					onClick={handleDashboard}
-					endIcon={
-						<Box
-							component={'svg'}
-							xmlns="http://www.w3.org/2000/svg"
-							fill="currentColor"
-							viewBox="0 0 20 20"
-							width={24}
-							height={24}
-						>
-							<path
-								fillRule="evenodd"
-								d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-								clipRule="evenodd"
-							/>
-						</Box>
-					}
+					endIcon={<ArrowForward />}
 				>
 					Proceed to dashboard
 				</Button>

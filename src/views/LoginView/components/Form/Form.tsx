@@ -63,7 +63,7 @@ const Form = (): JSX.Element => {
 	}, []);
 
 	return (
-		<Box>
+		<Box sx={{ display: { xs: 'none' } }}>
 			<Box marginBottom={4}>
 				<Typography
 					variant="h4"
