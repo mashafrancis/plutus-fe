@@ -1,4 +1,4 @@
-import { Stack, Typography, Box } from '@mui/material';
+import { Stack, Typography, Box, Grid } from '@mui/material';
 import dayjs from '@utils/dayjsTime';
 import Button from '@mui/material/Button';
 import { useRouter } from 'next/router';
@@ -10,12 +10,7 @@ const MobileFormView = (): JSX.Element => {
 	const handleDashboard = () => push('/login');
 
 	const firstColumn = (): JSX.Element => (
-		<Stack
-			direction="column"
-			justifyContent="flex-start"
-			alignItems="flex-start"
-			spacing={1}
-		>
+		<Grid item xs>
 			<Stack
 				direction="row"
 				justifyContent="space-between"
@@ -29,10 +24,11 @@ const MobileFormView = (): JSX.Element => {
 			<Typography variant="h5">
 				{dayjs(Date.now()).format('MMM.DD.YYYY | dddd')}
 			</Typography>
-		</Stack>
+		</Grid>
 	);
 
 	const secondColumn = (): JSX.Element => (
+    <Grid item xs>
 		<Stack
 			direction="column"
 			justifyContent="flex-end"
@@ -45,9 +41,11 @@ const MobileFormView = (): JSX.Element => {
 				Account for your financial records income and expenses.
 			</Typography>
 		</Stack>
+    </Grid>
 	);
 
 	const thirdColumn = (): JSX.Element => (
+    <Grid item xs>
 		<Button
 			variant="contained"
 			color="primary"
@@ -58,20 +56,22 @@ const MobileFormView = (): JSX.Element => {
 		>
 			Login
 		</Button>
+    </Grid>
 	);
 
 	return (
-		<Stack
-			direction="column"
-			justifyContent="space-around"
-			alignItems="flex-start"
-			spacing={10}
-			marginRight={'12px'}
-		>
-			{firstColumn()}
-			{secondColumn()}
-			{thirdColumn()}
-		</Stack>
+    <Box>
+			<Grid
+        container
+        direction="column"
+        justifyContent="space-between"
+        alignItems="stretch"
+			>
+				{firstColumn()}
+				{secondColumn()}
+				{thirdColumn()}
+			</Grid>
+    </Box>
 	);
 };
 

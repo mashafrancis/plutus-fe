@@ -17,38 +17,37 @@ const LoginView = (): JSX.Element => {
 	});
 
 	return (
-		<Minimal>
+		// <Minimal>
 			<Box
-				sx={{
-					width: 1,
-					height: 1,
-					overflow: 'hidden',
-				}}
+				position="relative"
+				minHeight="100vh"
+				display="flex"
+				alignItems="center"
+				justifyContent="center"
+				// sx={{
+				// 	width: 1,
+				// 	height: 1,
+				// 	overflow: 'hidden',
+				// }}
 			>
 				<Container
-					paddingY={{ xs: 0, sm: 6, md: 8 }}
-					paddingX={{ xs: 0, md: 2 }}
+					maxWidth={{ sm: 720, md: 960 }}
+					// paddingY={{ xs: 0, sm: 6, md: 8 }}
+					// paddingX={{ xs: 0, md: 2 }}
 				>
-					<Grid container spacing={1}>
-						{isMd ? (
-							<Grid item container justifyContent={'center'} xs={12} md={6}>
-								<Box height={1} width={1} maxWidth={500}>
-									<LoginIllustration />
-								</Box>
-							</Grid>
-						) : (
-							<Grid item container xs={4}>
-								<Box height={1} width={1}>
-									<LoginMobileIllustration />
-								</Box>
-							</Grid>
-						)}
+					<Grid
+						container
+						direction="row"
+						justifyContent="space-evenly"
+						alignItems="center"
+						spacing={0}
+					>
+						{/*<Grid item xs={4} maxHeight={{ xs: '100vh', md: 'unset' }}>*/}
+						{/*	<LoginMobileIllustration />*/}
+						{/*</Grid>*/}
 						<Grid
 							item
-							container
-							alignItems="center"
-							justifyContent="center"
-							xs={8}
+							xs={12}
 							// md={5}
 						>
 							{<MobileForm />}
@@ -56,7 +55,7 @@ const LoginView = (): JSX.Element => {
 					</Grid>
 				</Container>
 			</Box>
-		</Minimal>
+		// </Minimal>
 	);
 };
 
