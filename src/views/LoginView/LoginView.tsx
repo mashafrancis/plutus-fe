@@ -17,45 +17,45 @@ const LoginView = (): JSX.Element => {
 	});
 
 	return (
-		// <Minimal>
-			<Box
-				position="relative"
-				minHeight="100vh"
-				display="flex"
-				alignItems="center"
-				justifyContent="center"
-				// sx={{
-				// 	width: 1,
-				// 	height: 1,
-				// 	overflow: 'hidden',
-				// }}
+		<Minimal>
+		<Box
+			position="relative"
+			minHeight="100vh"
+			display="flex"
+			alignItems="center"
+			justifyContent="center"
+			// sx={{
+			// 	width: 1,
+			// 	height: 1,
+			// 	overflow: 'hidden',
+			// }}
+		>
+			<Container
+				maxWidth={{ sm: 720, md: 960 }}
+				// paddingY={{ xs: 0, sm: 6, md: 8 }}
+				// paddingX={{ xs: 0, md: 2 }}
 			>
-				<Container
-					maxWidth={{ sm: 720, md: 960 }}
-					// paddingY={{ xs: 0, sm: 6, md: 8 }}
-					// paddingX={{ xs: 0, md: 2 }}
+				<Grid
+					container
+					direction="row"
+					justifyContent="space-evenly"
+					alignItems="center"
+					spacing={0}
 				>
-					<Grid
-						container
-						direction="row"
-						justifyContent="space-evenly"
-						alignItems="center"
-						spacing={0}
-					>
-						{/*<Grid item xs={4} maxHeight={{ xs: '100vh', md: 'unset' }}>*/}
-						{/*	<LoginMobileIllustration />*/}
-						{/*</Grid>*/}
-						<Grid
-							item
-							xs={12}
-							// md={5}
-						>
-							{<MobileForm />}
-						</Grid>
+					<Grid item xs={4} maxHeight={{ xs: '100vh', md: 'unset' }}>
+            {isMd ? <LoginIllustration /> : <LoginMobileIllustration />}
 					</Grid>
-				</Container>
-			</Box>
-		// </Minimal>
+					<Grid
+						item
+						xs={8}
+						md={5}
+					>
+						{<MobileForm />}
+					</Grid>
+				</Grid>
+			</Container>
+		</Box>
+		</Minimal>
 	);
 };
 
