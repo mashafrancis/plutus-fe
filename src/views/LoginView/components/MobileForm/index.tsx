@@ -1,20 +1,20 @@
-import {Stack, Typography, Box, Grid, Divider} from '@mui/material';
+import { Stack, Typography, Box, Grid, Divider } from '@mui/material';
 import dayjs from '@utils/dayjsTime';
 import Button from '@mui/material/Button';
 import { useRouter } from 'next/router';
 import Logo from '@components/atoms/Logo';
 import { ArrowForward, ArrowRightAlt } from '@mui/icons-material';
-import {useTheme} from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const MobileFormView = (): JSX.Element => {
 	const { push } = useRouter();
 	const handleDashboard = () => push('/login');
 
-  const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-    defaultMatches: true,
-  });
+	const theme = useTheme();
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+		defaultMatches: true,
+	});
 
 	const firstColumn = (): JSX.Element => (
 		<Grid item xs>
@@ -67,13 +67,13 @@ const MobileFormView = (): JSX.Element => {
 	);
 
 	return (
-    <Box sx={{ width: '100%', flexGrow: 1 }}>
+		<Box sx={{ width: '100%', flexGrow: 1 }}>
 			<Grid
 				container
 				direction="column"
 				justifyContent="space-between"
 				alignItems="stretch"
-        spacing={isMd ? 8 : 16}
+				spacing={isMd ? 8 : 16}
 			>
 				{firstColumn()}
 				{secondColumn()}
